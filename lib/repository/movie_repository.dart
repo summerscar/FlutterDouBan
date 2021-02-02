@@ -50,6 +50,7 @@ class MovieRepository {
 
     ///影院热映
     var result = await _request.get(API.IN_THEATERS);
+    // todo: result 为空
     var resultList = result['subjects'];
     hotShowBeans =
         resultList.map<Subject>((item) => Subject.fromMap(item)).toList();
