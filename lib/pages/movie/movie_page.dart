@@ -74,7 +74,7 @@ class _MoviePageState extends State<MoviePage>  with AutomaticKeepAliveClientMix
       padding: EdgeInsets.only(top: 35.0, bottom: 15.0),
       child: hotSoonTabBar,
     );
-    requestAPI();
+    // requestAPI();
   }
 
   @override
