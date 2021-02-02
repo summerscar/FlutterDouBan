@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart' hide Router;
+import 'package:flutter/cupertino.dart' hide Router;
 import 'package:doubanapp/http/API.dart';
 import 'package:doubanapp/router.dart';
 import 'package:doubanapp/bean/subject_entity.dart';

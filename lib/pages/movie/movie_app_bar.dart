@@ -344,6 +344,7 @@ class AppBar extends StatefulWidget implements PreferredSizeWidget {
   @override
   final Size preferredSize;
 
+  // ignore: unused_element
   bool _getEffectiveCenterTitle(ThemeData themeData) {
     if (centerTitle != null) return centerTitle;
     assert(themeData.platform != null);
@@ -353,6 +354,15 @@ class AppBar extends StatefulWidget implements PreferredSizeWidget {
         return false;
       case TargetPlatform.iOS:
         return actions == null || actions.length < 2;
+      case TargetPlatform.linux:
+        // TODO: Handle this case.
+        break;
+      case TargetPlatform.macOS:
+        // TODO: Handle this case.
+        break;
+      case TargetPlatform.windows:
+        // TODO: Handle this case.
+        break;
     }
     return null;
   }
@@ -439,6 +449,15 @@ class _AppBarState extends State<AppBar> {
           namesRoute = true;
           break;
         case TargetPlatform.iOS:
+          break;
+        case TargetPlatform.linux:
+          // TODO: Handle this case.
+          break;
+        case TargetPlatform.macOS:
+          // TODO: Handle this case.
+          break;
+        case TargetPlatform.windows:
+          // TODO: Handle this case.
           break;
       }
       title = DefaultTextStyle(
@@ -1192,7 +1211,7 @@ getWidget() {
             // This is not necessary if the "headerSliverBuilder" only builds
             // widgets that do not overlap the next sliver.
             handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-            child: SliverAppBar(
+            sliver: SliverAppBar(
               pinned: true,
               expandedHeight: 100.0,
               primary: false,

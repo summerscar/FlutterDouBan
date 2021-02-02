@@ -345,6 +345,7 @@ class AppBar extends StatefulWidget implements PreferredSizeWidget {
   @override
   final Size preferredSize;
 
+  // ignore: unused_element
   bool _getEffectiveCenterTitle(ThemeData themeData) {
     if (centerTitle != null) return centerTitle;
     assert(themeData.platform != null);
@@ -354,6 +355,15 @@ class AppBar extends StatefulWidget implements PreferredSizeWidget {
         return false;
       case TargetPlatform.iOS:
         return actions == null || actions.length < 2;
+      case TargetPlatform.linux:
+        // TODO: Handle this case.
+        break;
+      case TargetPlatform.macOS:
+        // TODO: Handle this case.
+        break;
+      case TargetPlatform.windows:
+        // TODO: Handle this case.
+        break;
     }
     return null;
   }
@@ -440,6 +450,15 @@ class _AppBarState extends State<AppBar> {
           namesRoute = true;
           break;
         case TargetPlatform.iOS:
+          break;
+        case TargetPlatform.linux:
+          // TODO: Handle this case.
+          break;
+        case TargetPlatform.macOS:
+          // TODO: Handle this case.
+          break;
+        case TargetPlatform.windows:
+          // TODO: Handle this case.
           break;
       }
       title = DefaultTextStyle(
@@ -1192,44 +1211,44 @@ getWidget() {
             // This is not necessary if the "headerSliverBuilder" only builds
             // widgets that do not overlap the next sliver.
             handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-            child: SliverAppBar(
-              pinned: true,
-              expandedHeight: 100.0,
-              primary: false,
-              titleSpacing: 0.0,
-              backgroundColor: Colors.white,
-              flexibleSpace: FlexibleSpaceBar(
-                collapseMode: CollapseMode.pin,
-                background: Container(
-                  color: Colors.green,
-                  child: SearchTextFieldWidget(
-                    hintText: 'fjeow',
-                    margin: const EdgeInsets.only(left: 15.0, right: 15.0),
+            sliver: SliverAppBar(
+                pinned: true,
+                expandedHeight: 100.0,
+                primary: false,
+                titleSpacing: 0.0,
+                backgroundColor: Colors.white,
+                flexibleSpace: FlexibleSpaceBar(
+                  collapseMode: CollapseMode.pin,
+                  background: Container(
+                    color: Colors.green,
+                    child: SearchTextFieldWidget(
+                      hintText: 'fjeow',
+                      margin: const EdgeInsets.only(left: 15.0, right: 15.0),
+                    ),
+                    alignment: Alignment(0.0, -0.5),
                   ),
-                  alignment: Alignment(0.0, -0.5),
+                ),
+                // The "forceElevated" property causes the SliverAppBar to show
+                // a shadow. The "innerBoxIsScrolled" parameter is true when the
+                // inner scroll view is scrolled beyond its "zero" point, i.e.
+                // when it appears to be scrolled below the SliverAppBar.
+                // Without this, there are cases where the shadow would appear
+                // or not appear inappropriately, because the SliverAppBar is
+                // not actually aware of the precise position of the inner
+                // scroll views.
+                bottomTextString: _tabs,
+                bottom: TabBar(
+                  // These are the widgets to put in each tab in the tab bar.
+                  tabs: _tabs
+                      .map((String name) => Container(
+                            child: Text(
+                              name,
+                            ),
+                            padding: const EdgeInsets.only(bottom: 5.0),
+                          ))
+                      .toList(),
                 ),
               ),
-              // The "forceElevated" property causes the SliverAppBar to show
-              // a shadow. The "innerBoxIsScrolled" parameter is true when the
-              // inner scroll view is scrolled beyond its "zero" point, i.e.
-              // when it appears to be scrolled below the SliverAppBar.
-              // Without this, there are cases where the shadow would appear
-              // or not appear inappropriately, because the SliverAppBar is
-              // not actually aware of the precise position of the inner
-              // scroll views.
-              bottomTextString: _tabs,
-              bottom: TabBar(
-                // These are the widgets to put in each tab in the tab bar.
-                tabs: _tabs
-                    .map((String name) => Container(
-                          child: Text(
-                            name,
-                          ),
-                          padding: const EdgeInsets.only(bottom: 5.0),
-                        ))
-                    .toList(),
-              ),
-            ),
           ),
         ];
       },

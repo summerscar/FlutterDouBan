@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Router;
 import 'package:doubanapp/pages/movie/title_widget.dart';
 import 'package:doubanapp/pages/movie/today_play_movie_widget.dart';
 import 'package:doubanapp/http/API.dart';
@@ -18,7 +18,7 @@ import 'package:doubanapp/http/http_request.dart';
 //import 'package:palette_generator/palette_generator.dart';
 import 'package:flutter/rendering.dart';
 import 'package:doubanapp/repository/movie_repository.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart' hide Router;
 import 'package:doubanapp/widgets/loading_widget.dart';
 import 'package:doubanapp/util/screen_utils.dart';
 import 'package:fluttertoast/fluttertoast.dart';

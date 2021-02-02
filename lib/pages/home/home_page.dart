@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Router;
 import 'package:doubanapp/widgets/search_text_field_widget.dart';
 import 'package:doubanapp/pages/home/home_app_bar.dart' as myapp;
 import 'package:doubanapp/http/http_request.dart';
@@ -38,7 +38,7 @@ DefaultTabController getWidget() {
             // This is not necessary if the "headerSliverBuilder" only builds
             // widgets that do not overlap the next sliver.
             handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-            child: myapp.SliverAppBar(
+            sliver: myapp.SliverAppBar(
               pinned: true,
               expandedHeight: 120.0,
               primary: true,

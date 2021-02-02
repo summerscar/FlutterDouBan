@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Router;
 import 'package:flutter/rendering.dart';
 import 'dart:math' as math;
 import 'package:doubanapp/widgets/my_tab_bar_widget.dart';

@@ -567,6 +567,8 @@ class ScrollableState extends State<Scrollable>
     super.debugFillProperties(properties);
     properties.add(DiagnosticsProperty<ScrollPosition>('position', position));
   }
+
+  noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
 
 /// With [_ScrollSemantics] certain child [SemanticsNode]s can be
